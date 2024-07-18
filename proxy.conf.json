@@ -1,0 +1,10 @@
+{
+    "/api": {
+      "target": "https://cuando-sale-costazul-92c89-default-rtdb.firebaseio.com/",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }
