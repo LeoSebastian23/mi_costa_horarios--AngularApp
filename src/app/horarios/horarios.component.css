@@ -1,44 +1,87 @@
 .horarios-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px; /* Espacio entre las tablas */
-    padding: 20px;
-    background: #f8f9fa;
-    font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: row; /* Alineación horizontal por defecto para pantallas grandes */
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px; /* Espacio entre las tablas */
+  padding: 20px;
+  background: linear-gradient(135deg, #f0f0f0, #c0c0c0); /* Fondo similar al clock-live */
+  font-family: 'Arial', sans-serif;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  box-sizing: border-box; /* Incluye padding y border en el cálculo del width */
+}
+
+.horarios-table-wrapper {
+  flex: 1;
+  width: 100%;
+  max-width: 600px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow-x: auto; /* Añade el scroll horizontal */
+}
+
+.horarios-table-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.horarios-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.horarios-table th, .horarios-table td {
+  padding: 12px;
+  border-bottom: 1px solid #dee2e6;
+  text-align: left;
+}
+
+.horarios-table th {
+  background: #343a40;
+  color: #ffffff;
+}
+
+.horarios-table tr:hover td {
+  background: #e0f7fa;
+}
+
+.horarios-table tr:last-child td {
+  border-bottom: none;
+}
+
+h2 {
+  margin-bottom: 10px;
+  color: #343a40;
+  text-align: center;
+  font-size: 1.5em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .horarios-container {
+    flex-direction: column; /* Alineación vertical para pantallas pequeñas */
+    padding: 10px;
   }
-  
+
   .horarios-table-wrapper {
+    padding: 15px;
     width: 100%;
-    max-width: 600px;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    box-sizing: border-box;
   }
-  
+
   .horarios-table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 100%; /* Asegúrate de que la tabla se ajuste al ancho del contenedor */
+    table-layout: fixed;
   }
-  
+
   .horarios-table th, .horarios-table td {
-    padding: 12px;
-    border-bottom: 1px solid #dee2e6;
-    text-align: left;
+    word-wrap: break-word;
+    padding: 8px;
   }
-  
-  .horarios-table th {
-    background: #343a40;
-    color: #ffffff;
-  }
-  
-  .horarios-table tr:hover {
-    background: #f1f1f1;
-  }
-  
-  h2 {
-    margin-bottom: 10px;
-    color: #343a40;
-    text-align: center;
-  }
+}

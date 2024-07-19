@@ -1,38 +1,37 @@
 <div class="horarios-container">
-    <div class="horarios-table-wrapper">
-      <h2>Horarios de Otamendi y Miramar</h2>
-      <table class="horarios-table">
-        <thead>
-          <tr>
-            <th>Otamendi Sale</th>
-            <th>Miramar Llega</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let horario of horarios">
-            <td>{{ horario.otamendi_sale }}</td>
-            <td>{{ horario.miramar_llega }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    
-    <div class="horarios-table-wrapper">
-      <h2>Horarios de Miramar y Otamendi</h2>
-      <table class="horarios-table">
-        <thead>
-          <tr>
-            <th>Miramar Sale</th>
-            <th>Otamendi Llega</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let horario of horarios">
-            <td>{{ horario.miramar_sale }}</td>
-            <td>{{ horario.otamendi_llega }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="horarios-table-wrapper">
+    <h2>Horarios de Otamendi a Miramar</h2>
+    <table class="horarios-table">
+      <thead>
+        <tr>
+          <th>Otamendi Sale</th>
+          <th>Miramar Llega</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let horario of horarios">
+          <td>{{ horario.otamendi_sale }}</td>
+          <td>{{ horario.miramar_llega }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   
+  <div class="horarios-table-wrapper">
+    <h2>Horarios de Miramar a Otamendi</h2>
+    <table class="horarios-table">
+      <thead>
+        <tr>
+          <th>Miramar Sale</th>
+          <th>Otamendi Llega</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let horario of horarios">
+          <td>{{ horario.miramar_sale }}</td>
+          <td>{{ horario.otamendi_llega }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
