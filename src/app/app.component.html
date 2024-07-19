@@ -1,21 +1,2 @@
 <app-clock-live></app-clock-live>
-<div class="horarios-container">
-  <table class="horarios-table">
-    <thead>
-      <tr>
-        <th>Otamendi Sale</th>
-        <th>Miramar Llega</th>
-        <th>Miramar Sale</th>
-        <th>Otamendi Llega</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let horario of horarios">
-        <td>{{ horario.otamendi_sale }}</td>
-        <td>{{ horario.miramar_llega }}</td>
-        <td>{{ horario.miramar_sale }}</td>
-        <td>{{ horario.otamendi_llega }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<app-horarios></app-horarios>

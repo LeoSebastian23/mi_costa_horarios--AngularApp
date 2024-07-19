@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-clock-live',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './clock-live.component.html',
   styleUrls: ['./clock-live.component.css']
 })
-export class clockLiveComponent implements OnInit {
+export class ClockLiveComponent implements OnInit {
   currentTime: string; // Variable para almacenar la hora actual
   targetTime: string = '14:30'; // Hora objetivo en formato HH:MM
   remainingTime: string; // Variable para almacenar el tiempo restante hasta la hora objetivo
@@ -24,7 +26,7 @@ export class clockLiveComponent implements OnInit {
     }, 1000);
   }
 
-  calculateRemainingTime(): string {    
+  calculateRemainingTime(): string {
     const now = new Date(); // Obtiene la fecha y hora actual
     const [targetHours, targetMinutes] = this.targetTime.split(':').map(Number); // Divide la hora objetivo en horas y minutos
     const targetDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), targetHours, targetMinutes); // Crea un objeto de fecha para la hora objetivo
