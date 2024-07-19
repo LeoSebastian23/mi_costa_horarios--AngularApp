@@ -1,24 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { clockLiveComponent } from './clock-live/clock-live.component';
+import { RouterOutlet } from '@angular/router';
+import { ClockLiveComponent } from './clock-live/clock-live.component';
+import { HorariosComponent } from './horarios/horarios.component';
 import { HorariosService } from './Services/horarios.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, clockLiveComponent],  // Asegúrate de importar CommonModule
+  imports: [CommonModule, RouterOutlet, ClockLiveComponent, HorariosComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']  // Cambiar a styleUrls
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  horarios: any[] = [];
+  otamendiTimes: string[] = [];
+  miramarTimes: string[] = [];
 
-  constructor(private horariosService: HorariosService) { }
+  constructor(private horariosService: HorariosService) {}
 
   ngOnInit(): void {
     this.horariosService.getHorarios().subscribe(data => {
-      this.horarios = data;
+      // Asumiendo que los datos vienen en un formato que contiene los horarios de Otamendi y Miramar
+      this.otamendiTimes = data.map(h => h.otamendi_sale);
+      this.miramarTimes = data.map(h => h.miramar_sale);
     });
   }
 }
+
+
+
