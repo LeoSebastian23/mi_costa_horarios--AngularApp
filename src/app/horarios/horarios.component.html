@@ -9,10 +9,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let horario of horarios">
-          <td>{{ horario.otamendi_sale }}</td>
-          <td>{{ horario.miramar_llega }}</td>
-        </tr>
+        <ng-container *ngFor="let horario of horarios">
+          <ng-container *ngIf="horario.origen === 'Otamendi' && horario.destino === 'Miramar'">
+            <tr>
+              <td>{{ horario.horaSalida }}</td>
+              <td>{{ horario.horaLlegada }}</td>
+            </tr>
+          </ng-container>
+        </ng-container>
       </tbody>
     </table>
   </div>
@@ -27,11 +31,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let horario of horarios">
-          <td>{{ horario.miramar_sale }}</td>
-          <td>{{ horario.otamendi_llega }}</td>
-        </tr>
+        <ng-container *ngFor="let horario of horarios">
+          <ng-container *ngIf="horario.origen === 'Miramar' && horario.destino === 'Otamendi'">
+            <tr>
+              <td>{{ horario.horaSalida }}</td>
+              <td>{{ horario.horaLlegada }}</td>
+            </tr>
+          </ng-container>
+        </ng-container>
       </tbody>
     </table>
   </div>
 </div>
+

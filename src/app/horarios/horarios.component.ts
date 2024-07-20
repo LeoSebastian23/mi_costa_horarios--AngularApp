@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Asegúrate de importar CommonModule
-import { ClockLiveComponent } from '../clock-live/clock-live.component';
+import { CommonModule } from '@angular/common';
 import { HorariosService } from '../Services/horarios.service';
+import { Horario } from '../horarios/horarios';
 
 @Component({
   selector: 'app-horarios',
   standalone: true,
-  imports: [CommonModule, ClockLiveComponent], // Asegúrate de que estos son los componentes/directivas/pipes necesarios
+  imports: [CommonModule],
   templateUrl: './horarios.component.html',
   styleUrls: ['./horarios.component.css']
 })
 export class HorariosComponent implements OnInit {
-  horarios: any[] = [];
+  horarios: Horario[] = [];
   otamendiSale: string = '';
   miramarSale: string = '';
 
@@ -19,7 +19,7 @@ export class HorariosComponent implements OnInit {
 
   ngOnInit(): void {
     this.horariosService.getHorarios().subscribe(data => {
-      this.horarios = data;
+      this.horarios = data.horarios; // Actualiza la asignación según el formato del JSON
       this.setNextDepartures();
     });
   }
@@ -30,14 +30,14 @@ export class HorariosComponent implements OnInit {
     let nextMiramar = '';
 
     for (const horario of this.horarios) {
-      const otamendiDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), ...horario.otamendi_sale.split(':').map(Number));
-      const miramarDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), ...horario.miramar_sale.split(':').map(Number));
+      const otamendiDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), ...horario.horaSalida.split(':').map(Number));
+      const miramarDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), ...horario.horaSalida.split(':').map(Number));
 
       if (otamendiDate > now && (!nextOtamendi || otamendiDate < new Date(now.getFullYear(), now.getMonth(), now.getDate(), ...nextOtamendi.split(':').map(Number)))) {
-        nextOtamendi = horario.otamendi_sale;
+        nextOtamendi = horario.horaSalida;
       }
       if (miramarDate > now && (!nextMiramar || miramarDate < new Date(now.getFullYear(), now.getMonth(), now.getDate(), ...nextMiramar.split(':').map(Number)))) {
-        nextMiramar = horario.miramar_sale;
+        nextMiramar = horario.horaSalida;
       }
     }
 
@@ -45,5 +45,6 @@ export class HorariosComponent implements OnInit {
     this.miramarSale = nextMiramar;
   }
 }
+
 
 
