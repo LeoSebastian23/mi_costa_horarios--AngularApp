@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Horario } from '../horarios/horarios';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HorariosService {
-  private apiUrl = '/api/dias_habiles.json'; // Ajusta la URL según sea necesario
+  private apiUrl = 'assets/horarios.json'; // Ruta al archivo JSON
 
   constructor(private http: HttpClient) { }
-  
-  getHorarios(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+
+  getHorarios(): Observable<{ horarios: Horario[] }> {
+    return this.http.get<{ horarios: Horario[] }>(this.apiUrl);
   }
 }
+
+
+

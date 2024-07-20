@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { ClockLiveComponent } from './clock-live/clock-live.component';
 import { HorariosComponent } from './horarios/horarios.component';
 import { HorariosService } from './Services/horarios.service';
+import { Horario } from './horarios/horarios'; // Asegúrate de tener la interfaz Horario
 
 @Component({
   selector: 'app-root',
@@ -20,12 +21,21 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.horariosService.getHorarios().subscribe(data => {
-      // Asumiendo que los datos vienen en un formato que contiene los horarios de Otamendi y Miramar
-      this.otamendiTimes = data.map(h => h.otamendi_sale);
-      this.miramarTimes = data.map(h => h.miramar_sale);
+      // Acceder a la propiedad 'horarios' del objeto
+      const horarios: Horario[] = data.horarios;
+
+      // Mapear los datos según la nueva estructura
+      this.otamendiTimes = horarios
+        .filter(h => h.origen === 'Otamendi')
+        .map(h => h.horaSalida);
+
+      this.miramarTimes = horarios
+        .filter(h => h.origen === 'Miramar')
+        .map(h => h.horaSalida);
     });
   }
 }
+
 
 
 

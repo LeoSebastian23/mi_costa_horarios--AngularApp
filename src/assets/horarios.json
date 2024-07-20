@@ -1,0 +1,61 @@
+{
+    "horarios": [
+      {
+        "id": 1,
+        "origen": "Otamendi",
+        "destino": "Miramar",
+        "horaSalida": "07:30",
+        "horaLlegada": "08:15"
+      },
+      {
+        "id": 2,
+        "origen": "Miramar",
+        "destino": "Otamendi",
+        "horaSalida": "08:30",
+        "horaLlegada": "09:15"
+      },
+      {
+        "id": 3,
+        "origen": "Otamendi",
+        "destino": "Miramar",
+        "horaSalida": "09:30",
+        "horaLlegada": "10:15"
+      },
+      {
+        "id": 4,
+        "origen": "Miramar",
+        "destino": "Otamendi",
+        "horaSalida": "10:30",
+        "horaLlegada": "11:15"
+      },
+      {
+        "id": 5,
+        "origen": "Otamendi",
+        "destino": "Miramar",
+        "horaSalida": "15:00",
+        "horaLlegada": "15:45"
+      },
+      {
+        "id": 6,
+        "origen": "Miramar",
+        "destino": "Otamendi",
+        "horaSalida": "16:00",
+        "horaLlegada": "16:45"
+      },
+      {
+        "id": 7,
+        "origen": "Otamendi",
+        "destino": "Miramar",
+        "horaSalida": "17:30",
+        "horaLlegada": "18:15"
+      },
+      {
+        "id": 8,
+        "origen": "Miramar",
+        "destino": "Otamendi",
+        "horaSalida": "18:30",
+        "horaLlegada": "19:15"
+      }
+    ]
+  }
+  
